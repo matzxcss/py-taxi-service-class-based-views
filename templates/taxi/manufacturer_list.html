@@ -2,9 +2,28 @@
 <title>Manufacturers</title>
 {% endblock %} {% block content %}
 <h1>Manufacturers</h1>
-<ul>
-  {% for manufacturer in manufacturer_list %}
-  <li>{{ manufacturer.name }}</li>
+<table class="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>country</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for manufacturer in manufacturer_list %}
+    <tr>
+      <td>
+        <a href="{% url "taxi:manufacturer-detail" manufacturer.pk %}"> {{ manufacturer.id }}</a>
+      </td>
+      <td>{{ manufacturer.name }}</td>
+      <td>{{ manufacturer.country }}</td>
+    </tr>
+  {% empty %}
+  <tr>
+    <td colspan="2">No manufacturers available.</td>
+  </tr>
   {% endfor %}
-</ul>
+  </tbody>
+</table>
 {% endblock %}

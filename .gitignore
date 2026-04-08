@@ -10,5 +10,3 @@ venv/
 /db.sqlite3
 .python-version
 main.py
-pyproject.toml
-uv.lock
